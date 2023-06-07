@@ -1,0 +1,45 @@
+<div class="sidebar">
+    <div class="row1">
+        <div class="sidebarheader">
+            <div class="col1">
+                <div class="profile-icon">
+                    AM
+                </div>
+            </div>
+            <div class="col2">
+                <img src="../../assets/images/statusIcon.svg" />
+                <img src="../../assets/images/chatIcon.svg" />
+                <img src="../../assets/images/moreVertIcon.svg" />
+            </div>
+        </div>
+        <div class="searchbox">
+            <img width="13" src="../assets/images/searchicon.png" alt="">
+            <input type="text" placeholder="Search or start the new chat">
+        </div>
+    </div>
+    <div class="sidebarcontent">
+        <!-- <div class="noconversations">
+        All chats are Achived
+      </div> -->
+         <div
+      class="conversation"
+      *ngFor="let conversation of conversations"
+      (click)="conversationClicked.emit(conversation)"
+    >
+            <div class="picture">
+                <img width="13" src="../assets/images/Default_pfp.svg.png" alt="">
+            </div>
+            <div class="content">
+                <div class="conversationheader">
+                    <div class="name">{{ conversation.name }}</div>
+                    <div class="time">{{ conversation.time }}</div>
+                </div>
+                <div class="message">
+                    <img *ngIf="!conversation.latestMessageRead" src="../../assets/images/doubleTick.svg" />
+                    <img *ngIf="conversation.latestMessageRead" src="../../assets/images/doubleTickBlue.svg" />
+                    {{ conversation.latestMessage }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
